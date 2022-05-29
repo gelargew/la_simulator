@@ -1,0 +1,52 @@
+.facet-wrapper {
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem;
+  background: turquoise;
+  width: min-content;
+}
+
+.facet-box {
+  display: grid;
+  min-width: 500px;
+  height: 100px;
+  grid-template-areas: 
+  "image  name  hammer"
+  "image  slots  hammer";
+  grid-template-columns: 100px auto 100px;
+  grid-template-rows: 1fr 3fr;
+  margin-bottom: 1rem;
+  border: 1px solid black;
+}
+
+.facet-image {
+  grid-area: image;
+  width: 100%;
+  height: 100%;
+}
+
+.facet-box .name {
+  grid-area: name;
+  background: pink;
+  margin: 0;
+}
+
+.slots {
+  grid-area: slots;
+  display: flex;
+  flex-direction: row;
+  place-items: center;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.slot {
+  width: 10px;
+  height: 10px;
+  border: 1px solid black;
+  transform: rotate(45deg);
+}
+
+.hammer {
+  grid-area: hammer;
+}
