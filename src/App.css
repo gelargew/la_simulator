@@ -49,4 +49,10 @@
 
 .hammer {
   grid-area: hammer;
+  
+}
+
+.hammer:hover {
+  cursor: pointer;
+  background: gray;
 }
