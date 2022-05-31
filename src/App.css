@@ -25,7 +25,6 @@
 
 .facet-box {
   display: grid;
-  min-width: 500px;
   height: 100px;
   grid-template-areas: 
   "image  name  hammer"
@@ -86,12 +85,51 @@
   
 }
 
-.hammer:hover img {
-  transform: rotate(40deg) translateY(-20px);
+@media(min-width: 800px) {
+  .hammer:hover img {
+    transform: rotate(40deg) translateY(-20px);
+  }
+  
+  .hammer:active img {
+    transition: transform 0.1s cubic-bezier(0.075, 0.82, 0.165, 1);
+    transform: rotate(0) translateY(0)
+  }
 }
 
-.hammer:active img {
-  transition: transform 0.1s cubic-bezier(0.075, 0.82, 0.165, 1);
-  transform: rotate(0) translateY(0)
-}
 
+
+@media(max-width: 800px) {
+
+  .facet-wrapper {
+    max-width: 90vw;
+    width: 90vw;
+    height: auto;
+    position: relative;
+  }
+  .facet-box {
+    position: relative;
+    width: 100%;
+    display: grid;
+    height: 80px;
+    grid-template-areas: 
+    "name  hammer"
+    "slots  hammer";
+    grid-template-columns: auto 100px;
+    grid-template-rows: 20px auto;
+    margin-bottom: 1rem;
+    border: 1px solid black;
+    text-align: center;
+    place-items: center;
+  }
+
+  .hammer {
+    transform: scale(0.5);
+  }
+
+  .facet-image {
+    display: none;
+  }
+  .slots {
+    transform: scale(0.7);
+  }
+}
