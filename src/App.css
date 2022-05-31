@@ -1,9 +1,26 @@
+.App {
+  display: flex;
+  place-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
 .facet-wrapper {
   display: flex;
   flex-direction: column;
   padding: 0.5rem;
-  background: turquoise;
+  background: rgb(61, 61, 61);
   width: min-content;
+  border-radius: 5px;
+  border: 2px solid rgba(255, 255, 255, 0.445);
+  color: rgb(245, 245, 245);
+}
+
+.facet-head {
+  display: flex;
+  flex-direction: row;
+  place-items: center;
+  justify-content: space-between;
 }
 
 .facet-box {
@@ -17,6 +34,7 @@
   grid-template-rows: 1fr 3fr;
   margin-bottom: 1rem;
   border: 1px solid black;
+  text-align: center;
 }
 
 .facet-image {
@@ -27,8 +45,9 @@
 
 .facet-box .name {
   grid-area: name;
-  background: pink;
   margin: 0;
+  font-size: smaller;
+  padding: 0.4rem;
 }
 
 .slots {
@@ -49,10 +68,30 @@
 
 .hammer {
   grid-area: hammer;
+  transition: background-color 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+  background-color: none;
+  display: flex;
+  place-items: center;
+  justify-content: center;
   
 }
 
 .hammer:hover {
   cursor: pointer;
-  background: gray;
 }
+
+.hammer img {
+  height: 40%;
+  transition: transform 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+  
+}
+
+.hammer:hover img {
+  transform: rotate(40deg) translateY(-20px);
+}
+
+.hammer:active img {
+  transition: transform 0.1s cubic-bezier(0.075, 0.82, 0.165, 1);
+  transform: rotate(0) translateY(0)
+}
+

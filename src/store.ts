@@ -9,7 +9,7 @@ const stoneSlots = atom({
     secondary: new Array(10).fill(0),
     negative: new Array(10).fill(0)
 })
-const resetStone = atom(null,
+const resetStone = atom(get => get(stoneSize),
     (get, set, size: number) => {
         set(stoneSlots, {
             main: new Array(size).fill(0),
@@ -17,6 +17,7 @@ const resetStone = atom(null,
             negative: new Array(size).fill(0)
         })
         set(stoneSize, size)
+        set(facetRate, 0.75)
     }
 )
 const facetStone = atom(
@@ -33,7 +34,8 @@ const facetStone = atom(
             set(stoneSlots, {...stones})
             set(facetRate, prev => {
                 prev += isSuccess ? -0.1 : 0.1
-                if (prev < 0.25 || prev > 0.75) return rate
+                if (prev < 0.247 || prev > 0.75) return rate
+                
                 return Math.round(prev*100)/100
             })
         }
@@ -48,7 +50,7 @@ const getStoneResult = atom(get => {
     }
     return result
 })
-
+const getRatePercentage = atom(get => Math.round(get(facetRate)*100))
 
 
 export {
@@ -57,5 +59,6 @@ export {
     stoneSlots,
     facetStone,
     resetStone,
-    getStoneResult
+    getStoneResult,
+    getRatePercentage
 }
