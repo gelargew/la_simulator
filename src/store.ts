@@ -29,7 +29,16 @@ const facetStone = atom(
         const slotIndex = selectedSlots.findIndex(n => n === 0)
         if (slotIndex === -1) return
         else {
+
+            /* ### THE MATH ### */
             const isSuccess = Math.random() < rate
+            /* 
+            Math.random return a random value between 0 - 1
+            e.g. if math.random return a 0.72,
+            its a success if the rate is 0.75 and
+            a failure if the rate is 0.65
+            */
+
             selectedSlots[slotIndex] = isSuccess ? 1 : -1
             set(stoneSlots, {...stones})
             set(facetRate, prev => {
