@@ -27,3 +27,10 @@ code {
 a {
   color: aqua;
 }
+
+
+@media(max-width: 800px) {
+  .App>small {
+    display: none;
+  }
+}
